@@ -45,18 +45,15 @@ similarity_scores = cosine_similarity(final_df)
 
 
 def recommend(book):
-    #TODO: Handle no case match exception
     try: 
         book_index = np.where(final_df.index == book)[0][0]
         distances = similarity_scores[book_index]
-        #print(distances)
         print(list(enumerate(distances)))
         book_list = sorted(list(enumerate(distances)), reverse=True, key=lambda x: x[1])[1:6]
         print(book_list)
         for i in book_list:
             print(final_df.index[i[0]])
     except:
-        #todo: call content-based filtering
         print('Not enough reviews found on the item, consider the books below based on their popularity:')
         for i in final_df.head(5).index.values:
             print(i)
