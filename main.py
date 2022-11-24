@@ -1,7 +1,5 @@
 import numpy as np
 import pandas as pd
-# from matplotlib import pyplot as plt
-# import seaborn as sns
 
 import warnings
 
@@ -58,4 +56,4 @@ def recommend(book):
         for i in final_df.head(5).index.values:
             print(i)
 
-recommend('Lying Awake')
+recommend('1984')
